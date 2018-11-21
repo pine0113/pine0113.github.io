@@ -1,0 +1,814 @@
+<!DOCTYPE html>
+
+
+
+
+<html class="theme-next mist" lang="zh-tw">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Docker,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="最近在工作上需要處理 Docker Container 的 Migration覺得其中眉眉角角都在挑戰自己觀念上不正確的地方，特此紀錄">
+<meta name="keywords" content="Docker">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Docker Container 移動到另一台 Host 方案匯總">
+<meta property="og:url" content="https://pine0113.github.io/2018/[Docker] 複製 Container 到另一台 Host 方案匯總/index.html">
+<meta property="og:site_name" content="蛇尾巴">
+<meta property="og:description" content="最近在工作上需要處理 Docker Container 的 Migration覺得其中眉眉角角都在挑戰自己觀念上不正確的地方，特此紀錄">
+<meta property="og:locale" content="zh-tw">
+<meta property="og:updated_time" content="2018-11-21T15:41:43.197Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Docker Container 移動到另一台 Host 方案匯總">
+<meta name="twitter:description" content="最近在工作上需要處理 Docker Container 的 Migration覺得其中眉眉角角都在挑戰自己觀念上不正確的地方，特此紀錄">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"right","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://pine0113.github.io/2018/[Docker] 複製 Container 到另一台 Host 方案匯總/">
+
+
+
+
+
+  <title>Docker Container 移動到另一台 Host 方案匯總 | 蛇尾巴</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-tw">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-right page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">蛇尾巴</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">神龍見首不見尾，所以只看到蛇尾巴</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首頁
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            關於
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            標籤
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分類
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            歸檔
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://pine0113.github.io/2018/[Docker] 複製 Container 到另一台 Host 方案匯總/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="G.I">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="蛇尾巴">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Docker Container 移動到另一台 Host 方案匯總</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">發表於</span>
+              
+              <time title="創建於" itemprop="dateCreated datePublished" datetime="2018-11-21T11:52:04+08:00">
+                2018-11-21
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分類於</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/IT-筆記/" itemprop="url" rel="index">
+                    <span itemprop="name">IT 筆記</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>最近在工作上需要處理 Docker Container 的 Migration<br>覺得其中眉眉角角都在挑戰自己觀念上不正確的地方，特此紀錄</p>
+<a id="more"></a>
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><h3 id="Image-Container-外部環境"><a href="#Image-Container-外部環境" class="headerlink" title="Image + Container + 外部環境"></a>Image + Container + 外部環境</h3><p>當 docker 運行時，因為會有層層疊加<br>我們可以用 Image + Container + 外部環境<br>三個部分來理解最後跑出來的環境</p>
+<p><strong>Image</strong> 是唯讀的 Layer，讓 Container 當作基準，Image 本身可能是由多個 Image 疊加起來的(通常我們用的都是疊到最高的 ID)。</p>
+<p><strong>Container </strong>做的變動都記錄在 Container Layer 上 ，<br>讓 docker “可讀寫” 環境的 layer</p>
+<p><strong>外部環境 </strong>就是像 Volumn 、 network 這一類<br>在上述兩者都只會記錄個名字做參照<br>但是實際設定跟這兩項根本沒關係的東西</p>
+<h3 id="目的地組態"><a href="#目的地組態" class="headerlink" title="目的地組態"></a>目的地組態</h3><p>總之在進行所有考慮前，其實還是要先決定複製的目的地要用哪種方式運行<br>是直接使用 docker run 、dockerfile 還是 用 docker-compose<br>因為三種方法要產生的文件就會不一樣…一開始決定好，<br>不會比較之後需要再改</p>
+<p>如果不知道這三個的差別…就…<br>再看看文章跟文件摟 XD</p>
+<h2 id="Image"><a href="#Image" class="headerlink" title="Image"></a>Image</h2><h3 id="方案-1-使用-dockerhub-上的官方-image"><a href="#方案-1-使用-dockerhub-上的官方-image" class="headerlink" title="方案 1 使用 dockerhub 上的官方 image"></a>方案 1 使用 dockerhub 上的官方 image</h3><p>條件：<br>需要知道</p>
+<ol>
+<li>Image Layer 上所做的變動(或是沒有變動)</li>
+<li>Container Layer 中所做的變動 ←很常沒人知道</li>
+</ol>
+<p>副作用：<br>Image Layer 上所做的變動需要重新做<br>Container Layer 中所做的變動需要重新做</p>
+<p>總之如果原本的環境就已經髒了的話基本上沒救<br>因為會在讓 Image 盡量跟原始環境 一樣這件事情很吃人工<br>已經熟悉寫 Dockerfile 的人會比較適合<br>不過最推薦這種模式，因為可以讓 Container Layer 基本上沒額外的變動</p>
+<p>作法：<br>獲取 Image</p>
+<pre><code>docker pull [ImageID]       // 因為是從官方來的啊 XD
+</code></pre><h3 id="方案-2-使用原始環境中的-Image"><a href="#方案-2-使用原始環境中的-Image" class="headerlink" title="方案 2. 使用原始環境中的 Image"></a>方案 2. 使用原始環境中的 Image</h3><p>條件：<br>需要知道 Container Layer 中所做的變動<br>副作用：Container Layer 中所做的變動需要重新做<br>作法：</p>
+<pre><code>docker login               // 登入 dockerhub
+docker push [imageID] [repo:imageName]    
+docker pull [repo:imageName]
+
+docker save [imageID] [repo:imageName] // 不過這段我沒有測試
+</code></pre><h3 id="方案-3-使用原始環境中的-Image-並-Commit-Container-變更"><a href="#方案-3-使用原始環境中的-Image-並-Commit-Container-變更" class="headerlink" title="方案 3. 使用原始環境中的 Image 並 Commit Container 變更"></a>方案 3. 使用原始環境中的 Image 並 Commit Container 變更</h3><p>條件：基本上不用知道任何事情 XD<br>副作用：<br>對 docker commit 不熟的話…可能會手殘動到原本環境<br>image 層數增加，用太多次的話 docker history 其實也很難追</p>
+<p><strong>我還沒測試這個做法</strong>，<br>因為這次是直接上 Production<br>而且還是別人的 Production XD (我無法再造的那種)<br>所以有用這個做法的人歡迎分享心得給我 (掩面)</p>
+<p>作法：</p>
+<pre><code>docker commit [containerID] [repo:imageName]
+docker login               // 登入 dockerhub
+docker push [repo:imageName] [repo:imageName]    
+docker pull [repo:imageName]
+</code></pre><h3 id="方案-4-用-docker-export-把原本的-image-container-壓成-file"><a href="#方案-4-用-docker-export-把原本的-image-container-壓成-file" class="headerlink" title="方案 4. 用 docker export 把原本的 image + container 壓成 file"></a>方案 4. 用 docker export 把原本的 image + container 壓成 file</h3><p>條件：基本上不用知道任何事情 XD<br>副作用：<br>會喪失 docker history，成為黑箱 image<br>同時只包含了檔案系統，所以所有環境變數都還是要手抄<br>需要直接使用檔案傳輸 (有時候可能是優點)</p>
+<p>作法：</p>
+<pre><code>docker export -o [fileName.tar] [ContainerID]
+cat [fileName.tar] | docker import — [Container]
+</code></pre><h2 id="Container"><a href="#Container" class="headerlink" title="Container"></a>Container</h2><h3 id="參數"><a href="#參數" class="headerlink" title="參數"></a>參數</h3><p>通常一般基本盤需要注意的參數就是以下這幾種<br>-表示 docker run 參數<br>大寫代表在 Dockerfile 中的保留字</p>
+<ul>
+<li><p>-e ENV</p>
+</li>
+<li><p>-w WORKDIR</p>
+</li>
+<li><p>-p PORT</p>
+</li>
+<li><p>-v VOLUMN</p>
+</li>
+</ul>
+<p>其他還有 — network 之類的就之後另文再談</p>
+<h3 id="怎麼抄環境"><a href="#怎麼抄環境" class="headerlink" title="怎麼抄環境"></a>怎麼抄環境</h3><p>最暴力的方法依舊是 docker inspect [containerID]<br>會出現很醜的 json 檔…</p>
+<p>就…參考上面的資訊 自行mapping 吧 (喂) (有空我再來補圖片 XD)</p>
+<h3 id="方案1-用-docker-run"><a href="#方案1-用-docker-run" class="headerlink" title="方案1. 用 docker run"></a>方案1. 用 docker run</h3><p>優點：除錯快速<br>缺點：日後維運痛苦度++，如果有dependency 需要自己注意順序</p>
+<pre><code>docker run  --name [container name]  -d  -t 
+-p [hostPort:containerPort] 
+-w /srv/jupyterhub 
+-e  PATH=/opt/conda/bin
+-e LANG=C.UTF-8 
+--net bridge  
+--publish-all 
+--restart &quot;no&quot;  
+[imageName]   &quot;[cmd]&quot;
+</code></pre><h3 id="方案-2-撰寫-Dockerfile"><a href="#方案-2-撰寫-Dockerfile" class="headerlink" title="方案 2. 撰寫 Dockerfile"></a>方案 2. 撰寫 Dockerfile</h3><p>依照 Container 變動 從 Image 環境 一一寫入<br>優點：撰寫較花時，需要 build image<br>缺點：日後方便維護</p>
+<pre><code>FROM ubuntu:16.04
+
+# Create app directory
+WORKDIR /var/app_1           #your working folder, the start folder
+VOLUME [&quot;/storage&quot;]          #volume keep data with put it on host
+
+COPY /host/app_1 /var/app_1  #copy host folder to container
+
+RUN apt-get update
+RUN apt-get install -y curl  #... install whatever you want
+
+EXPOSE 3000
+CMD  bash                    # the cmd you want to run
+</code></pre><p>Build image</p>
+<pre><code>docker build .
+</code></pre><h3 id="方案-3-撰寫-Dockerfile-而且撰寫-Docker-compose"><a href="#方案-3-撰寫-Dockerfile-而且撰寫-Docker-compose" class="headerlink" title="方案 3. 撰寫 Dockerfile 而且撰寫 Docker-compose"></a>方案 3. 撰寫 Dockerfile 而且撰寫 Docker-compose</h3><p>參考資料<br><a href="https://tuhrig.de/difference-between-save-and-export-in-docker/" target="_blank" rel="noopener"><strong>Difference between save and export in Docker</strong><br><em>I recently played around with Docker, an application container and virtualization‎ technology for Linux. It was pretty…</em>tuhrig.de</a><br><a href="https://blog.hinablue.me/docker-bi-jiao-save-export-dui-yu-ying-xiang-dang-cao-zuo-chai-yi/" target="_blank" rel="noopener"><strong>[Docker] 比較 save, export 對於映象檔操作差異</strong><br><em>通常夢境進入第三層，時間就約莫放大了 1000 倍，或者換句話說，時間維度被強大的重立場壓縮後放大，放大了 4380 倍左右。 不過 Docker 做什麼事情都 3 秒，所以不會讓你等太久（ 欸 這裡沒有 Docker…</em>blog.hinablue.me</a></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Docker/" rel="tag"># Docker</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/匯出medium文章為markdown/" rel="prev" title="匯出 medium 文章為 markdown 格式">
+                匯出 medium 文章為 markdown 格式 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目錄
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            本站概覽
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">G.I</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">文章</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">分類</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-name">標籤</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Image-Container-外部環境"><span class="nav-number">1.1.</span> <span class="nav-text">Image + Container + 外部環境</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#目的地組態"><span class="nav-number">1.2.</span> <span class="nav-text">目的地組態</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Image"><span class="nav-number">2.</span> <span class="nav-text">Image</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#方案-1-使用-dockerhub-上的官方-image"><span class="nav-number">2.1.</span> <span class="nav-text">方案 1 使用 dockerhub 上的官方 image</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#方案-2-使用原始環境中的-Image"><span class="nav-number">2.2.</span> <span class="nav-text">方案 2. 使用原始環境中的 Image</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#方案-3-使用原始環境中的-Image-並-Commit-Container-變更"><span class="nav-number">2.3.</span> <span class="nav-text">方案 3. 使用原始環境中的 Image 並 Commit Container 變更</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#方案-4-用-docker-export-把原本的-image-container-壓成-file"><span class="nav-number">2.4.</span> <span class="nav-text">方案 4. 用 docker export 把原本的 image + container 壓成 file</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Container"><span class="nav-number">3.</span> <span class="nav-text">Container</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#參數"><span class="nav-number">3.1.</span> <span class="nav-text">參數</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#怎麼抄環境"><span class="nav-number">3.2.</span> <span class="nav-text">怎麼抄環境</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#方案1-用-docker-run"><span class="nav-number">3.3.</span> <span class="nav-text">方案1. 用 docker run</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#方案-2-撰寫-Dockerfile"><span class="nav-number">3.4.</span> <span class="nav-text">方案 2. 撰寫 Dockerfile</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#方案-3-撰寫-Dockerfile-而且撰寫-Docker-compose"><span class="nav-number">3.5.</span> <span class="nav-text">方案 3. 撰寫 Dockerfile 而且撰寫 Docker-compose</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">G.I</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 強力驅動</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主題 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+  <script type="text/javascript" src="/js/src/js.cookie.js?v=5.1.4"></script>
+  <script type="text/javascript" src="/js/src/scroll-cookie.js?v=5.1.4"></script>
+
+
+  
+
+</body>
+</html>
