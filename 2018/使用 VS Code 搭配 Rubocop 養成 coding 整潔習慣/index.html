@@ -84,13 +84,13 @@
 
 
 
-<meta name="description" content="[Rails] 使用 Visual Studio Code 搭配 Rubocop 養成 coding 整潔習慣基本上，新手寫code總是有些不乾淨的習慣像是多加空白啦、少加空白啦 縮排沒有對齊等等 Rubocop 就是 在 Ruby 環境中出現的一個工具，可以幫助你檢查有哪些地方不符標準 最原生的作法就是安裝後在檔案存放目錄下執行 rubocop 指令  這樣會出現像是單元測試的檢查結果(如下圖)">
+<meta name="description" content="[Rails] 使用 Visual Studio Code 搭配 Rubocop 養成 coding 整潔習慣基本上，新手寫code總是有些不乾淨的習慣像是多加空白啦、少加空白啦 縮排沒有對齊等等 Rubocop 就是 在 Ruby 環境中出現的一個工具，可以幫助你檢查有哪些地方不符標準">
 <meta name="keywords" content="rails,VS Code,作業環境">
 <meta property="og:type" content="article">
 <meta property="og:title" content="使用 VS Code 搭配 Rubocop 養成 coding 整潔習慣">
 <meta property="og:url" content="https://pine0113.github.io/2018/使用 VS Code 搭配 Rubocop 養成 coding 整潔習慣/index.html">
 <meta property="og:site_name" content="蛇尾巴">
-<meta property="og:description" content="[Rails] 使用 Visual Studio Code 搭配 Rubocop 養成 coding 整潔習慣基本上，新手寫code總是有些不乾淨的習慣像是多加空白啦、少加空白啦 縮排沒有對齊等等 Rubocop 就是 在 Ruby 環境中出現的一個工具，可以幫助你檢查有哪些地方不符標準 最原生的作法就是安裝後在檔案存放目錄下執行 rubocop 指令  這樣會出現像是單元測試的檢查結果(如下圖)">
+<meta property="og:description" content="[Rails] 使用 Visual Studio Code 搭配 Rubocop 養成 coding 整潔習慣基本上，新手寫code總是有些不乾淨的習慣像是多加空白啦、少加空白啦 縮排沒有對齊等等 Rubocop 就是 在 Ruby 環境中出現的一個工具，可以幫助你檢查有哪些地方不符標準">
 <meta property="og:locale" content="zh-tw">
 <meta property="og:image" content="https://cdn-images-1.medium.com/max/2000/1*vQhovUuOZO7Af7p8FRknNQ.png">
 <meta property="og:image" content="https://cdn-images-1.medium.com/max/2272/1*Zi2QK1IjWNDEs2ERVGVg2Q.png">
@@ -99,10 +99,10 @@
 <meta property="og:image" content="https://cdn-images-1.medium.com/max/4736/1*xwjNu1Z5p1ftN5Xg6SqZmw.png">
 <meta property="og:image" content="https://cdn-images-1.medium.com/max/5724/1*fUd4H9ffJWHUf05l_Ai0iw.png">
 <meta property="og:image" content="https://cdn-images-1.medium.com/max/3656/1*4joU96ABG-Kugi7NGNAWxw.png">
-<meta property="og:updated_time" content="2018-11-22T13:39:03.698Z">
+<meta property="og:updated_time" content="2018-11-22T13:44:05.859Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="使用 VS Code 搭配 Rubocop 養成 coding 整潔習慣">
-<meta name="twitter:description" content="[Rails] 使用 Visual Studio Code 搭配 Rubocop 養成 coding 整潔習慣基本上，新手寫code總是有些不乾淨的習慣像是多加空白啦、少加空白啦 縮排沒有對齊等等 Rubocop 就是 在 Ruby 環境中出現的一個工具，可以幫助你檢查有哪些地方不符標準 最原生的作法就是安裝後在檔案存放目錄下執行 rubocop 指令  這樣會出現像是單元測試的檢查結果(如下圖)">
+<meta name="twitter:description" content="[Rails] 使用 Visual Studio Code 搭配 Rubocop 養成 coding 整潔習慣基本上，新手寫code總是有些不乾淨的習慣像是多加空白啦、少加空白啦 縮排沒有對齊等等 Rubocop 就是 在 Ruby 環境中出現的一個工具，可以幫助你檢查有哪些地方不符標準">
 <meta name="twitter:image" content="https://cdn-images-1.medium.com/max/2000/1*vQhovUuOZO7Af7p8FRknNQ.png">
 
 
@@ -366,8 +366,7 @@
 
       
         <h1 id="Rails-使用-Visual-Studio-Code-搭配-Rubocop-養成-coding-整潔習慣"><a href="#Rails-使用-Visual-Studio-Code-搭配-Rubocop-養成-coding-整潔習慣" class="headerlink" title="[Rails] 使用 Visual Studio Code 搭配 Rubocop 養成 coding 整潔習慣"></a>[Rails] 使用 Visual Studio Code 搭配 Rubocop 養成 coding 整潔習慣</h1><p>基本上，新手寫code總是有些不乾淨的習慣<br>像是多加空白啦、少加空白啦 縮排沒有對齊等等</p>
-<p>Rubocop 就是 在 Ruby 環境中出現的一個工具，可以幫助你檢查有哪些地方不符標準</p>
-<p>最原生的作法就是安裝後在檔案存放目錄下執行 rubocop 指令</p>
+<p>Rubocop 就是 在 Ruby 環境中出現的一個工具，可以幫助你檢查有哪些地方不符標準<br><a id="more"></a><br>最原生的作法就是安裝後在檔案存放目錄下執行 rubocop 指令</p>
 <p><img src="https://cdn-images-1.medium.com/max/2000/1*vQhovUuOZO7Af7p8FRknNQ.png" alt=""></p>
 <p>這樣會出現像是單元測試的檢查結果(如下圖)<br>到這個部分還是沒什麼用</p>
 <p><img src="https://cdn-images-1.medium.com/max/2272/1*Zi2QK1IjWNDEs2ERVGVg2Q.png" alt=""></p>
