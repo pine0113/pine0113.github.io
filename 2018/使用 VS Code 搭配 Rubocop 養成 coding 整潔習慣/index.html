@@ -73,7 +73,7 @@
 
 
 
-  <meta name="keywords" content="Hexo,">
+  <meta name="keywords" content="rails,VS Code,作業環境,">
 
 
 
@@ -84,18 +84,26 @@
 
 
 
-<meta name="description" content="完整出處請參考官網https://hexo.io/zh-tw/docs/commands.html 清理資料庫 (清除冗餘 Tags,Categories 等使用) hexo clean  新增文章 hexo new [post|draft] postname.md 建立 Server hexo s -p port 部署 hexo deploy -g">
-<meta name="keywords" content="Hexo">
+<meta name="description" content="[Rails] 使用 Visual Studio Code 搭配 Rubocop 養成 coding 整潔習慣基本上，新手寫code總是有些不乾淨的習慣像是多加空白啦、少加空白啦 縮排沒有對齊等等 Rubocop 就是 在 Ruby 環境中出現的一個工具，可以幫助你檢查有哪些地方不符標準 最原生的作法就是安裝後在檔案存放目錄下執行 rubocop 指令  這樣會出現像是單元測試的檢查結果(如下圖)">
+<meta name="keywords" content="rails,VS Code,作業環境">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hexo管理用指令">
-<meta property="og:url" content="https://pine0113.github.io/2018/Hexo管理用指令/index.html">
+<meta property="og:title" content="使用 VS Code 搭配 Rubocop 養成 coding 整潔習慣">
+<meta property="og:url" content="https://pine0113.github.io/2018/使用 VS Code 搭配 Rubocop 養成 coding 整潔習慣/index.html">
 <meta property="og:site_name" content="蛇尾巴">
-<meta property="og:description" content="完整出處請參考官網https://hexo.io/zh-tw/docs/commands.html 清理資料庫 (清除冗餘 Tags,Categories 等使用) hexo clean  新增文章 hexo new [post|draft] postname.md 建立 Server hexo s -p port 部署 hexo deploy -g">
+<meta property="og:description" content="[Rails] 使用 Visual Studio Code 搭配 Rubocop 養成 coding 整潔習慣基本上，新手寫code總是有些不乾淨的習慣像是多加空白啦、少加空白啦 縮排沒有對齊等等 Rubocop 就是 在 Ruby 環境中出現的一個工具，可以幫助你檢查有哪些地方不符標準 最原生的作法就是安裝後在檔案存放目錄下執行 rubocop 指令  這樣會出現像是單元測試的檢查結果(如下圖)">
 <meta property="og:locale" content="zh-tw">
-<meta property="og:updated_time" content="2018-11-21T15:53:23.345Z">
+<meta property="og:image" content="https://cdn-images-1.medium.com/max/2000/1*vQhovUuOZO7Af7p8FRknNQ.png">
+<meta property="og:image" content="https://cdn-images-1.medium.com/max/2272/1*Zi2QK1IjWNDEs2ERVGVg2Q.png">
+<meta property="og:image" content="https://cdn-images-1.medium.com/max/2248/1*dzPD7dRVaH8SeMs8p8GAaw.png">
+<meta property="og:image" content="https://cdn-images-1.medium.com/max/3192/1*LZ4i29O9TxLJuXNQ2QuoFg.png">
+<meta property="og:image" content="https://cdn-images-1.medium.com/max/4736/1*xwjNu1Z5p1ftN5Xg6SqZmw.png">
+<meta property="og:image" content="https://cdn-images-1.medium.com/max/5724/1*fUd4H9ffJWHUf05l_Ai0iw.png">
+<meta property="og:image" content="https://cdn-images-1.medium.com/max/3656/1*4joU96ABG-Kugi7NGNAWxw.png">
+<meta property="og:updated_time" content="2018-11-22T13:39:03.698Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo管理用指令">
-<meta name="twitter:description" content="完整出處請參考官網https://hexo.io/zh-tw/docs/commands.html 清理資料庫 (清除冗餘 Tags,Categories 等使用) hexo clean  新增文章 hexo new [post|draft] postname.md 建立 Server hexo s -p port 部署 hexo deploy -g">
+<meta name="twitter:title" content="使用 VS Code 搭配 Rubocop 養成 coding 整潔習慣">
+<meta name="twitter:description" content="[Rails] 使用 Visual Studio Code 搭配 Rubocop 養成 coding 整潔習慣基本上，新手寫code總是有些不乾淨的習慣像是多加空白啦、少加空白啦 縮排沒有對齊等等 Rubocop 就是 在 Ruby 環境中出現的一個工具，可以幫助你檢查有哪些地方不符標準 最原生的作法就是安裝後在檔案存放目錄下執行 rubocop 指令  這樣會出現像是單元測試的檢查結果(如下圖)">
+<meta name="twitter:image" content="https://cdn-images-1.medium.com/max/2000/1*vQhovUuOZO7Af7p8FRknNQ.png">
 
 
 
@@ -125,13 +133,13 @@
 
 
 
-  <link rel="canonical" href="https://pine0113.github.io/2018/Hexo管理用指令/">
+  <link rel="canonical" href="https://pine0113.github.io/2018/使用 VS Code 搭配 Rubocop 養成 coding 整潔習慣/">
 
 
 
 
 
-  <title>Hexo管理用指令 | 蛇尾巴</title>
+  <title>使用 VS Code 搭配 Rubocop 養成 coding 整潔習慣 | 蛇尾巴</title>
   
 
 
@@ -268,7 +276,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://pine0113.github.io/2018/Hexo管理用指令/">
+    <link itemprop="mainEntityOfPage" href="https://pine0113.github.io/2018/使用 VS Code 搭配 Rubocop 養成 coding 整潔習慣/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="G.I">
@@ -285,7 +293,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Hexo管理用指令</h1>
+          <h1 class="post-title" itemprop="name headline">使用 VS Code 搭配 Rubocop 養成 coding 整潔習慣</h1>
         
 
         <div class="post-meta">
@@ -297,8 +305,8 @@
               
                 <span class="post-meta-item-text">發表於</span>
               
-              <time title="創建於" itemprop="dateCreated datePublished" datetime="2018-11-21T23:43:53+08:00">
-                2018-11-21
+              <time title="創建於" itemprop="dateCreated datePublished" datetime="2018-06-16T05:33:20+08:00">
+                2018-06-16
               </time>
             
 
@@ -357,16 +365,41 @@
       
 
       
-        <p>完整出處請參考官網<br><a href="https://hexo.io/zh-tw/docs/commands.html" target="_blank" rel="noopener">https://hexo.io/zh-tw/docs/commands.html</a></p>
-<p>清理資料庫 (清除冗餘 Tags,Categories 等使用)</p>
-<pre><code>hexo clean 
-</code></pre><p>新增文章</p>
-<pre><code>hexo new [post|draft] postname.md
-</code></pre><p>建立 Server</p>
-<pre><code>hexo s -p port
-</code></pre><p>部署</p>
-<pre><code>hexo deploy -g
-</code></pre>
+        <h1 id="Rails-使用-Visual-Studio-Code-搭配-Rubocop-養成-coding-整潔習慣"><a href="#Rails-使用-Visual-Studio-Code-搭配-Rubocop-養成-coding-整潔習慣" class="headerlink" title="[Rails] 使用 Visual Studio Code 搭配 Rubocop 養成 coding 整潔習慣"></a>[Rails] 使用 Visual Studio Code 搭配 Rubocop 養成 coding 整潔習慣</h1><p>基本上，新手寫code總是有些不乾淨的習慣<br>像是多加空白啦、少加空白啦 縮排沒有對齊等等</p>
+<p>Rubocop 就是 在 Ruby 環境中出現的一個工具，可以幫助你檢查有哪些地方不符標準</p>
+<p>最原生的作法就是安裝後在檔案存放目錄下執行 rubocop 指令</p>
+<p><img src="https://cdn-images-1.medium.com/max/2000/1*vQhovUuOZO7Af7p8FRknNQ.png" alt=""></p>
+<p>這樣會出現像是單元測試的檢查結果(如下圖)<br>到這個部分還是沒什麼用</p>
+<p><img src="https://cdn-images-1.medium.com/max/2272/1*Zi2QK1IjWNDEs2ERVGVg2Q.png" alt=""></p>
+<p>但是搭配特定文字編輯器 就可以直接在 IDE 中偵測、檢查相關異常<br>在編輯檔案的時候就直接順手養成良好慣例</p>
+<p><img src="https://cdn-images-1.medium.com/max/2248/1*dzPD7dRVaH8SeMs8p8GAaw.png" alt="綠色底線 像在 Word 中出現的拼字檢查一樣"><em>綠色底線 像在 Word 中出現的拼字檢查一樣</em></p>
+<p>—</p>
+<p>如何在 Visual Studio Code 中安裝、使用 Rubocop</p>
+<ol>
+<li><p>安裝 Visual Studio Code (省略步驟</p>
+</li>
+<li><p>安裝 rubocop</p>
+<p> gem install rubocop</p>
+</li>
+<li><p>設定 Visual Studio Code 與 rubocop 連結</p>
+</li>
+</ol>
+<p>在 Extension 列表中搜尋 rubocop</p>
+<p><img src="https://cdn-images-1.medium.com/max/3192/1*LZ4i29O9TxLJuXNQ2QuoFg.png" alt=""></p>
+<p>並點選安裝、安裝完成後點選重新載入</p>
+<p><img src="https://cdn-images-1.medium.com/max/4736/1*xwjNu1Z5p1ftN5Xg6SqZmw.png" alt="點選安裝"><em>點選安裝</em></p>
+<p><img src="https://cdn-images-1.medium.com/max/5724/1*fUd4H9ffJWHUf05l_Ai0iw.png" alt="點選重新載入"><em>點選重新載入</em></p>
+<p>設定 Setting File</p>
+<p>點選 [Code] -&gt; [喜好設定] -&gt; [設定]</p>
+<p><img src="https://cdn-images-1.medium.com/max/3656/1*4joU96ABG-Kugi7NGNAWxw.png" alt="點選 Setting File — settings.json"><em>點選 Setting File — settings.json</em></p>
+<p>加上以下兩行</p>
+<pre><code>&quot;ruby.rubocop.executePath&quot;: &quot;&quot;,
+
+&quot;ruby.rubocop.onSave&quot;: true
+</code></pre><p>這樣就大功告成啦！</p>
+<p>參考資訊</p>
+<p>Rubocop Githup連結<br><a href="https://github.com/rubocop-hq/rubocop" target="_blank" rel="noopener">https://github.com/rubocop-hq/rubocop</a></p>
+
       
     </div>
     
@@ -383,7 +416,11 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Hexo/" rel="tag"># Hexo</a>
+            <a href="/tags/rails/" rel="tag"># rails</a>
+          
+            <a href="/tags/VS-Code/" rel="tag"># VS Code</a>
+          
+            <a href="/tags/作業環境/" rel="tag"># 作業環境</a>
           
         </div>
       
@@ -396,8 +433,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/匯出medium文章為markdown/" rel="next" title="匯出 medium 文章為 markdown 格式">
-                <i class="fa fa-chevron-left"></i> 匯出 medium 文章為 markdown 格式
+              <a href="/2018/VS Code 修改 Tab設定/" rel="next" title="VS Code 修改 Tab設定">
+                <i class="fa fa-chevron-left"></i> VS Code 修改 Tab設定
               </a>
             
           </div>
@@ -405,6 +442,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/複製 Container 內的檔案到 Host/" rel="prev" title="複製 Container 內的檔案到 Host">
+                複製 Container 內的檔案到 Host <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -456,8 +497,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目錄
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            本站概覽
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
             
@@ -517,6 +567,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Rails-使用-Visual-Studio-Code-搭配-Rubocop-養成-coding-整潔習慣"><span class="nav-number">1.</span> <span class="nav-text">[Rails] 使用 Visual Studio Code 搭配 Rubocop 養成 coding 整潔習慣</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       

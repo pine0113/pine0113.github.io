@@ -73,7 +73,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="Linux Command,">
 
 
 
@@ -84,14 +84,18 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="about">
-<meta property="og:url" content="https://pine0113.github.io/about/index.html">
+<meta name="description" content="[Linux] 指令 — SCPSCP -P [port] [user_account]@[server_ip_or_dnsname]:[source_file_path] [destination_file_path] 使用 ssh key傳輸密碼 -r 參數表示傳輸資料夾 SCP -r 參考資料Linux 的 scp 指令用法教學與範例：遠端加密複製檔案與目錄 - G. T. Wang這裡介紹">
+<meta name="keywords" content="Linux Command">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SCP">
+<meta property="og:url" content="https://pine0113.github.io/2018/SCP/index.html">
 <meta property="og:site_name" content="蛇尾巴">
+<meta property="og:description" content="[Linux] 指令 — SCPSCP -P [port] [user_account]@[server_ip_or_dnsname]:[source_file_path] [destination_file_path] 使用 ssh key傳輸密碼 -r 參數表示傳輸資料夾 SCP -r 參考資料Linux 的 scp 指令用法教學與範例：遠端加密複製檔案與目錄 - G. T. Wang這裡介紹">
 <meta property="og:locale" content="zh-tw">
-<meta property="og:updated_time" content="2018-11-21T03:30:18.207Z">
+<meta property="og:updated_time" content="2018-11-22T13:37:49.136Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="about">
+<meta name="twitter:title" content="SCP">
+<meta name="twitter:description" content="[Linux] 指令 — SCPSCP -P [port] [user_account]@[server_ip_or_dnsname]:[source_file_path] [destination_file_path] 使用 ssh key傳輸密碼 -r 參數表示傳輸資料夾 SCP -r 參考資料Linux 的 scp 指令用法教學與範例：遠端加密複製檔案與目錄 - G. T. Wang這裡介紹">
 
 
 
@@ -121,13 +125,13 @@
 
 
 
-  <link rel="canonical" href="https://pine0113.github.io/about/">
+  <link rel="canonical" href="https://pine0113.github.io/2018/SCP/">
 
 
 
 
 
-  <title>about | 蛇尾巴</title>
+  <title>SCP | 蛇尾巴</title>
   
 
 
@@ -252,33 +256,174 @@
 
   <div id="posts" class="posts-expand">
     
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://pine0113.github.io/2018/SCP/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="G.I">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="蛇尾巴">
+    </span>
+
     
-    
-    <div class="post-block page">
       <header class="post-header">
 
-	<h1 class="post-title" itemprop="name headline">about</h1>
-
-
-
-</header>
-
-      
-      
-      
-      <div class="post-body">
         
         
+          <h1 class="post-title" itemprop="name headline">SCP</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">發表於</span>
+              
+              <time title="創建於" itemprop="dateCreated datePublished" datetime="2018-06-25T05:46:36+08:00">
+                2018-06-25
+              </time>
+            
+
+            
+
+            
+          </span>
+
           
-        
-      </div>
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分類於</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/IT-筆記/" itemprop="url" rel="index">
+                    <span itemprop="name">IT 筆記</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
       
       
+
+      
+        <h1 id="Linux-指令-—-SCP"><a href="#Linux-指令-—-SCP" class="headerlink" title="[Linux] 指令 — SCP"></a>[Linux] 指令 — SCP</h1><p>SCP -P [port] [user_account]@[server_ip_or_dnsname]:[source_file_path] [destination_file_path]</p>
+<p>使用 ssh key傳輸密碼</p>
+<p>-r 參數表示傳輸資料夾</p>
+<pre><code>SCP -r
+</code></pre><p>參考資料<br><a href="https://blog.gtwang.org/linux/linux-scp-command-tutorial-examples/" target="_blank" rel="noopener"><strong>Linux 的 scp 指令用法教學與範例：遠端加密複製檔案與目錄 - G. T. Wang</strong><br><em>這裡介紹如何在 Linux 系統上以 scp 指令複製檔案與目錄，並提供一些參考範例。 若要在不同的 Linux 主機之間複製檔案，最常用的方法就是使用 scp 指令，它可以透過 SSH…</em>blog.gtwang.org</a></p>
+
       
     </div>
     
     
     
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Linux-Command/" rel="tag"># Linux Command</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/複製 Container 內的檔案到 Host/" rel="next" title="複製 Container 內的檔案到 Host">
+                <i class="fa fa-chevron-left"></i> 複製 Container 內的檔案到 Host
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/dd/" rel="prev" title="dd">
+                dd <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
   </div>
 
 
@@ -311,8 +456,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目錄
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            本站概覽
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
             
@@ -372,6 +526,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Linux-指令-—-SCP"><span class="nav-number">1.</span> <span class="nav-text">[Linux] 指令 — SCP</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       

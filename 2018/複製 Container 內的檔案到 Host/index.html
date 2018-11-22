@@ -73,7 +73,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="docker,">
 
 
 
@@ -84,14 +84,18 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="about">
-<meta property="og:url" content="https://pine0113.github.io/about/index.html">
+<meta name="description" content="[docker] 複製 Container 內的檔案到 Host最近在工作上開始使用到 docker ，…身為一個 newbie 一定要什麼都來記一下XD 語法很簡單，範例如下 docker cp &amp;lt;containerID&amp;gt;:/file/path/within/container /host/path/target 不過不熟 docker 的人就會跟我一樣還缺兩個東西：  contai">
+<meta name="keywords" content="docker">
+<meta property="og:type" content="article">
+<meta property="og:title" content="複製 Container 內的檔案到 Host">
+<meta property="og:url" content="https://pine0113.github.io/2018/複製 Container 內的檔案到 Host/index.html">
 <meta property="og:site_name" content="蛇尾巴">
+<meta property="og:description" content="[docker] 複製 Container 內的檔案到 Host最近在工作上開始使用到 docker ，…身為一個 newbie 一定要什麼都來記一下XD 語法很簡單，範例如下 docker cp &amp;lt;containerID&amp;gt;:/file/path/within/container /host/path/target 不過不熟 docker 的人就會跟我一樣還缺兩個東西：  contai">
 <meta property="og:locale" content="zh-tw">
-<meta property="og:updated_time" content="2018-11-21T03:30:18.207Z">
+<meta property="og:updated_time" content="2018-11-22T13:35:24.002Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="about">
+<meta name="twitter:title" content="複製 Container 內的檔案到 Host">
+<meta name="twitter:description" content="[docker] 複製 Container 內的檔案到 Host最近在工作上開始使用到 docker ，…身為一個 newbie 一定要什麼都來記一下XD 語法很簡單，範例如下 docker cp &amp;lt;containerID&amp;gt;:/file/path/within/container /host/path/target 不過不熟 docker 的人就會跟我一樣還缺兩個東西：  contai">
 
 
 
@@ -121,13 +125,13 @@
 
 
 
-  <link rel="canonical" href="https://pine0113.github.io/about/">
+  <link rel="canonical" href="https://pine0113.github.io/2018/複製 Container 內的檔案到 Host/">
 
 
 
 
 
-  <title>about | 蛇尾巴</title>
+  <title>複製 Container 內的檔案到 Host | 蛇尾巴</title>
   
 
 
@@ -252,33 +256,187 @@
 
   <div id="posts" class="posts-expand">
     
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://pine0113.github.io/2018/複製 Container 內的檔案到 Host/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="G.I">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="蛇尾巴">
+    </span>
+
     
-    
-    <div class="post-block page">
       <header class="post-header">
 
-	<h1 class="post-title" itemprop="name headline">about</h1>
-
-
-
-</header>
-
-      
-      
-      
-      <div class="post-body">
         
         
+          <h1 class="post-title" itemprop="name headline">複製 Container 內的檔案到 Host</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">發表於</span>
+              
+              <time title="創建於" itemprop="dateCreated datePublished" datetime="2018-06-22T03:52:28+08:00">
+                2018-06-22
+              </time>
+            
+
+            
+
+            
+          </span>
+
           
-        
-      </div>
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分類於</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/IT-筆記/" itemprop="url" rel="index">
+                    <span itemprop="name">IT 筆記</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
       
       
+
+      
+        <h1 id="docker-複製-Container-內的檔案到-Host"><a href="#docker-複製-Container-內的檔案到-Host" class="headerlink" title="[docker] 複製 Container 內的檔案到 Host"></a>[docker] 複製 Container 內的檔案到 Host</h1><p>最近在工作上開始使用到 docker ，<br>…身為一個 newbie 一定要什麼都來記一下XD</p>
+<p>語法很簡單，範例如下</p>
+<pre><code>docker cp &lt;containerID&gt;:/file/path/within/container /host/path/target
+</code></pre><p>不過不熟 docker 的人就會跟我一樣還缺兩個東西：</p>
+<ol>
+<li>container ID 怎麼來</li>
+</ol>
+<p>用 docker ps 就可以列出 container 清單啦</p>
+<pre><code>docker ps
+</code></pre><ol start="2">
+<li>檔案路徑位置怎麼確定</li>
+</ol>
+<p>就直接進去看就好</p>
+<pre><code>docker exec -t -i &lt;containerID&gt; /bin/bash
+</code></pre><p>參考資料中還有其他 4 種方式，像是建立 snapshot 跟 ssh，<br>但我覺得實務上還是直接跑進去看比較方便，所以有興趣的朋友再去參考資料看看吧。</p>
+<p>參考資料：</p>
+<p><a href="https://stackoverflow.com/questions/22049212/copying-files-from-docker-container-to-host" target="_blank" rel="noopener">https://stackoverflow.com/questions/22049212/copying-files-from-docker-container-to-host</a></p>
+<p><a href="https://stackoverflow.com/questions/20813486/exploring-docker-containers-file-system" target="_blank" rel="noopener">https://stackoverflow.com/questions/20813486/exploring-docker-containers-file-system</a></p>
+
       
     </div>
     
     
     
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/docker/" rel="tag"># docker</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/使用 VS Code 搭配 Rubocop 養成 coding 整潔習慣/" rel="next" title="使用 VS Code 搭配 Rubocop 養成 coding 整潔習慣">
+                <i class="fa fa-chevron-left"></i> 使用 VS Code 搭配 Rubocop 養成 coding 整潔習慣
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/SCP/" rel="prev" title="SCP">
+                SCP <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
   </div>
 
 
@@ -311,8 +469,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目錄
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            本站概覽
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
             
@@ -372,6 +539,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#docker-複製-Container-內的檔案到-Host"><span class="nav-number">1.</span> <span class="nav-text">[docker] 複製 Container 內的檔案到 Host</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
