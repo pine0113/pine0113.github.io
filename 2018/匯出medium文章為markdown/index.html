@@ -61,10 +61,10 @@
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
 
 
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/32x32.png?v=5.1.4">
 
 
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/16x16.png?v=5.1.4">
 
 
   <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
@@ -84,18 +84,18 @@
 
 
 
-<meta name="description" content="由於要將 medium 文章搬家，所以開始找尋一些解法此篇做法來自於https://medium.com/@macropus/export-your-medium-posts-to-markdown-b5ccc8cb0050讀得起英文的可以直接看原文">
+<meta name="description" content="由於要將 medium 文章搬家，所以開始找尋一些解法此篇做法來自於https://medium.com/@macropus/export-your-medium-posts-to-markdown-b5ccc8cb0050讀得起英文的可以直接看原文 又參考了這篇https://medium.jasonmdesign.com/display-medium-articles-on-your-site">
 <meta name="keywords" content="medium,migration">
 <meta property="og:type" content="article">
 <meta property="og:title" content="匯出 medium 文章為 markdown 格式">
 <meta property="og:url" content="https://pine0113.github.io/2018/匯出medium文章為markdown/index.html">
 <meta property="og:site_name" content="蛇尾巴">
-<meta property="og:description" content="由於要將 medium 文章搬家，所以開始找尋一些解法此篇做法來自於https://medium.com/@macropus/export-your-medium-posts-to-markdown-b5ccc8cb0050讀得起英文的可以直接看原文">
+<meta property="og:description" content="由於要將 medium 文章搬家，所以開始找尋一些解法此篇做法來自於https://medium.com/@macropus/export-your-medium-posts-to-markdown-b5ccc8cb0050讀得起英文的可以直接看原文 又參考了這篇https://medium.jasonmdesign.com/display-medium-articles-on-your-site">
 <meta property="og:locale" content="zh-tw">
-<meta property="og:updated_time" content="2018-11-21T15:52:00.043Z">
+<meta property="og:updated_time" content="2018-11-22T00:46:29.616Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="匯出 medium 文章為 markdown 格式">
-<meta name="twitter:description" content="由於要將 medium 文章搬家，所以開始找尋一些解法此篇做法來自於https://medium.com/@macropus/export-your-medium-posts-to-markdown-b5ccc8cb0050讀得起英文的可以直接看原文">
+<meta name="twitter:description" content="由於要將 medium 文章搬家，所以開始找尋一些解法此篇做法來自於https://medium.com/@macropus/export-your-medium-posts-to-markdown-b5ccc8cb0050讀得起英文的可以直接看原文 又參考了這篇https://medium.jasonmdesign.com/display-medium-articles-on-your-site">
 
 
 
@@ -166,7 +166,7 @@
       </a>
     </div>
       
-        <p class="site-subtitle">神龍見首不見尾，所以只看到蛇尾巴</p>
+        <p class="site-subtitle"></p>
       
   </div>
 
@@ -358,7 +358,9 @@
 
       
         <p>由於要將 medium 文章搬家，所以開始找尋一些解法<br>此篇做法來自於<br><a href="https://medium.com/@macropus/export-your-medium-posts-to-markdown-b5ccc8cb0050" target="_blank" rel="noopener">https://medium.com/@macropus/export-your-medium-posts-to-markdown-b5ccc8cb0050</a><br>讀得起英文的可以直接看原文</p>
+<p>又參考了這篇<br><a href="https://medium.jasonmdesign.com/display-medium-articles-on-your-site-d772b3b05779" target="_blank" rel="noopener">https://medium.jasonmdesign.com/display-medium-articles-on-your-site-d772b3b05779</a><br>整理成可以整個透過 RSS feed 整個站台倒出來的方式</p>
 <a id="more"></a>
+<p>＃ 單篇匯出的方式</p>
 <ol>
 <li><p>install node.js</p>
 <blockquote>
@@ -371,6 +373,11 @@
 <li><p>使用 mediumxporter 匯出</p>
 <pre><code>mediumexporter https://medium.com/p/你的文章網址 &gt; medium_post.md
 </code></pre></li>
+</ol>
+<h1 id="RSS-匯出倒出全站台"><a href="#RSS-匯出倒出全站台" class="headerlink" title="RSS 匯出倒出全站台"></a>RSS 匯出倒出全站台</h1><ol>
+<li><p>使用 <a href="https://rss2json.com/" target="_blank" rel="noopener">https://rss2json.com/</a><br>註冊帳號並取得 api key<br>並用 medium 的 rss feed 網址 <a href="https://medium.com/feed/@你的mediumID" target="_blank" rel="noopener">https://medium.com/feed/@你的mediumID</a><br>取得 JSON</p>
+</li>
+<li></li>
 </ol>
 
       
@@ -468,8 +475,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目錄
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            本站概覽
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
             
@@ -529,6 +545,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#RSS-匯出倒出全站台"><span class="nav-number">1.</span> <span class="nav-text">RSS 匯出倒出全站台</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
