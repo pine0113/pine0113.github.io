@@ -273,6 +273,137 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://pine0113.github.io/2013/C-Matlab-COM元件在IIS-Base-WebService底下的-80070005-存取被拒-錯誤/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="G.I">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="蛇尾巴">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2013/C-Matlab-COM元件在IIS-Base-WebService底下的-80070005-存取被拒-錯誤/" itemprop="url">[C#] Matlab COM元件在IIS Base WebService底下的 80070005 存取被拒 錯誤</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">發表於</span>
+              
+              <time title="創建於" itemprop="dateCreated datePublished" datetime="2013-08-28T11:07:39+08:00">
+                2013-08-28
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>這兩天在使用MLApp這個Class撰寫Matlab的Web Service時遇到這個鬼打牆的問題<br>解決的算是莫名其妙，也徹底感受到中文程式資訊的不足…</p>
+<p>網路上遇到</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">**System.UnauthorizedAccessException: 擷取元件 (CLSID 為 &#123; blahblahblahblahblahblahCLSID&#125;) 的 COM Class Factory 失敗，因為發生下列錯誤: 80070005 存取被拒。**</span><br></pre></td></tr></table></figure>
+<p>google出來的結果大部分都是</p>
+<blockquote>
+<p>開始 -&gt;執行 -&gt; mmc.exe 或是&nbsp;dcomcnfg.exe<br>從元件服務 -&gt; blahblah -&gt; DCOM設定</p>
+</blockquote>
+<p>再去找出你用的服務，然後右鍵 內容 -&gt; 安全性<br>把 Network Service 跟 IIS_IUSRS 這兩個使用者加入權限</p>
+<p>可設完之後還是跳同一個error</p>
+<hr>
+<p>最後處理的方法是</p>
+<p>改IIS的設定 把<code>Webservice的應用程式集區</code> 的 <code>識別</code> 改成 <code>Local System</code></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://pine0113.github.io/2013/找出自己的價值/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
@@ -1606,153 +1737,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://pine0113.github.io/2012/包容，另一種Halting-Problem/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="G.I">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="蛇尾巴">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2012/包容，另一種Halting-Problem/" itemprop="url">包容，另一種Halting Problem</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">發表於</span>
-              
-              <time title="創建於" itemprop="dateCreated datePublished" datetime="2012-11-11T01:05:57+08:00">
-                2012-11-11
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分類於</span>
-              
-              
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/日記/" itemprop="url" rel="index">
-                    <span itemprop="name">日記</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>準備計算機理論期中的時候複習到 Halting Problem，<br>想起當初準備研究所的時候就想到的例子。</p>
-<p>##自以為證明「歧視是不可能有消除的一天」(喂)。##</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2012/包容，另一種Halting-Problem/#more" rel="contents">
-              閱讀全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1803,7 +1787,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">41</span>
+                  <span class="site-state-item-count">42</span>
                   <span class="site-state-item-name">文章</span>
                 </a>
               </div>
