@@ -73,7 +73,7 @@
 
 
 
-  <meta name="keywords" content=",">
+  <meta name="keywords" content="Hexo, NexT">
 
 
 
@@ -84,18 +84,17 @@
 
 
 
-<meta name="description" content="為了要設定長洪新店館網址跟二姊的blog網址(好讓其看起來不像是mote.twbbs.org的產物)，在研究虛擬主機跟DNS的漫長奮鬥之後終於有了結果…。也怕自己忘記所以趕緊記下相關的設定。(網路上的解決方法總是有些那麼不全Orz)目標：讓twbbs等網域名可以正確指向所需資料夾方法：將網域指向主機，主機以虛擬主機方式提供不同資料，假裝自己是很多種主機。虛擬主機定義：讓不同網域連至本主機後提供不同">
-<meta name="keywords" content="資訊筆記">
-<meta property="og:type" content="website">
-<meta property="og:title" content="[apache] apache2.2 虛擬主機設定">
-<meta property="og:url" content="https://pine0113.github.io/google archive/apache-apache2-2-虛擬主機設定.html">
+<meta name="description" content="恩，終於找到練習柔道的人們拉。 是個令人感到快樂的事情，呵呵呵呵。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="柔道初體驗">
+<meta property="og:url" content="https://pine0113.github.io/2009/柔道初體驗/index.html">
 <meta property="og:site_name" content="蛇尾巴">
-<meta property="og:description" content="為了要設定長洪新店館網址跟二姊的blog網址(好讓其看起來不像是mote.twbbs.org的產物)，在研究虛擬主機跟DNS的漫長奮鬥之後終於有了結果…。也怕自己忘記所以趕緊記下相關的設定。(網路上的解決方法總是有些那麼不全Orz)目標：讓twbbs等網域名可以正確指向所需資料夾方法：將網域指向主機，主機以虛擬主機方式提供不同資料，假裝自己是很多種主機。虛擬主機定義：讓不同網域連至本主機後提供不同">
+<meta property="og:description" content="恩，終於找到練習柔道的人們拉。 是個令人感到快樂的事情，呵呵呵呵。">
 <meta property="og:locale" content="zh-tw">
-<meta property="og:updated_time" content="2018-11-23T03:15:44.361Z">
+<meta property="og:updated_time" content="2018-11-23T03:37:05.905Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="[apache] apache2.2 虛擬主機設定">
-<meta name="twitter:description" content="為了要設定長洪新店館網址跟二姊的blog網址(好讓其看起來不像是mote.twbbs.org的產物)，在研究虛擬主機跟DNS的漫長奮鬥之後終於有了結果…。也怕自己忘記所以趕緊記下相關的設定。(網路上的解決方法總是有些那麼不全Orz)目標：讓twbbs等網域名可以正確指向所需資料夾方法：將網域指向主機，主機以虛擬主機方式提供不同資料，假裝自己是很多種主機。虛擬主機定義：讓不同網域連至本主機後提供不同">
+<meta name="twitter:title" content="柔道初體驗">
+<meta name="twitter:description" content="恩，終於找到練習柔道的人們拉。 是個令人感到快樂的事情，呵呵呵呵。">
 
 
 
@@ -125,13 +124,13 @@
 
 
 
-  <link rel="canonical" href="https://pine0113.github.io/google archive/apache-apache2-2-虛擬主機設定.html">
+  <link rel="canonical" href="https://pine0113.github.io/2009/柔道初體驗/">
 
 
 
 
 
-  <title>[apache] apache2.2 虛擬主機設定 | 蛇尾巴</title>
+  <title>柔道初體驗 | 蛇尾巴</title>
   
 
 
@@ -256,40 +255,185 @@
 
   <div id="posts" class="posts-expand">
     
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://pine0113.github.io/2009/柔道初體驗/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="G.I">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="蛇尾巴">
+    </span>
+
     
-    
-    <div class="post-block page">
       <header class="post-header">
 
-	<h1 class="post-title" itemprop="name headline">[apache] apache2.2 虛擬主機設定</h1>
-
-
-
-</header>
-
-      
-      
-      
-      <div class="post-body">
         
         
-          <div style="font-family: inherit;">為了要設定<a href="http://shintien.twbbs.org/" target="_blank" rel="noopener">長洪新店館</a>網址跟<a href="http://shireteahouse.twbbs.org/" target="_blank" rel="noopener">二姊的blog</a>網址<br>(好讓其看起來不像是mote.twbbs.org的產物)，<br>在研究虛擬主機跟DNS的漫長奮鬥之後終於有了結果…。</div><div style="font-family: inherit;">也怕自己忘記所以趕緊記下相關的設定。<br>(網路上的解決方法總是有些那麼不全Orz)</div><div style="font-family: inherit;"><br><a name="more"></a><br></div><div style="font-family: inherit;">目標：讓twbbs等網域名可以正確指向所需資料夾</div><div style="font-family: inherit;">方法：將網域指向主機，主機以虛擬主機方式提供不同資料，假裝自己是很多種主機。</div><div style="font-family: inherit;"><br></div><div style="font-family: inherit;">虛擬主機定義：讓不同網域連至本主機後提供不同的資料夾當作瀏覽檔案的相關設定</div><div style="font-family: inherit;"><br></div><div style="font-family: inherit;">1.主機上設定：修改apache2.2相關設定</div><div style="font-family: inherit;">1-1.修改httpd.conf&nbsp; (freebsd下預設位址為/usr/local/etc/apache22)</div><div style="font-family: inherit;">&nbsp;&nbsp; Virtualhost的設定預設是被註解掉的，將其註解拔掉</div><div style="font-family: inherit;"><br>&nbsp; # Virtual hosts<br><span style="color: red;">&nbsp; Include etc/apache22/extra/httpd-vhosts.conf</span></div><div style="font-family: inherit;"><br>1-2.修改extra/httpd-vhosts.conf</div><div style="font-family: inherit;">&nbsp; 檔案中有2個預設範例</div><div style="font-family: inherit;">&nbsp; 基本結構如下</div><div style="color: #666666; font-family: inherit;"></div><div style="color: #666666; font-family: inherit;"><code>&amp;lt;VirtualHost 接受位址:接受埠&amp;nbsp;&amp;gt;
-&amp;nbsp;       &lt;span class=&quot;indent&quot;&gt;ServerAdmin 管理者mail
-&amp;nbsp; DocumentRoot 檔案位址
-&amp;nbsp; ServerName 連結過來之網域名稱
-&amp;nbsp; ErrorLog 錯誤Log儲存處
-&amp;nbsp; TransferLog logs/host.example.com-access_log
-&lt;/span&gt;       &amp;lt;/VirtualHost&amp;gt;&amp;nbsp;</code></div><div style="font-family: inherit;"><br></div><div style="font-family: inherit;"><code>1-3.重開apache</code></div><div style="color: #666666; font-family: inherit;"><code>&amp;nbsp; `</code>apachectl -k restart<code>&lt;/div&gt;&lt;div style=&quot;color: #666666; font-family: inherit;&quot;&gt;
-&lt;/div&gt;&lt;div style=&quot;color: #666666; font-family: inherit;&quot;&gt;</code><span style="color: black;">2.網域DNS設定</span><code>&lt;/div&gt;&lt;div style=&quot;color: #666666; font-family: inherit;&quot;&gt;</code><span style="color: black;">&nbsp; 網域DNS設定指向主機即可。 </span><code>&lt;/div&gt;&lt;div style=&quot;color: #666666; font-family: inherit;&quot;&gt;</code><span style="color: black;">&nbsp; 類別差異：</span><code>&lt;/div&gt;&lt;div style=&quot;color: #666666; font-family: inherit;&quot;&gt;</code><span style="color: black;">&nbsp; A:&nbsp;&nbsp;&nbsp; 直接指定IP</span><code>&lt;/div&gt;&lt;div style=&quot;color: #666666; font-family: inherit;&quot;&gt;</code><span style="color: black;">&nbsp; CNAME:指定另一網域名</span><code>&lt;/div&gt;&lt;div style=&quot;color: #666666; font-family: inherit;&quot;&gt;</code><span style="color: black;">&nbsp; NS:&nbsp;&nbsp; 指定另一Name Server</span><code>&lt;/div&gt;&lt;div style=&quot;color: #666666; font-family: inherit;&quot;&gt;</code><span style="color: black;">&nbsp; AAAA: 指定IPv6的主機</span><code>&lt;/div&gt;&lt;div style=&quot;color: #666666; font-family: inherit;&quot;&gt;</code><span style="color: black;"><br></span><code>&lt;/div&gt;&lt;div style=&quot;color: #666666; font-family: inherit;&quot;&gt;</code><span style="color: black;">&nbsp; 其中A跟Cname的差別就像是Address跟pointer的差別：</span><code>&lt;/div&gt;&lt;div style=&quot;color: #666666; font-family: inherit;&quot;&gt;</code><span style="color: black;">&nbsp; A是直接指定IP，Cname是指定一個指向IP的網域</span><code>&lt;/div&gt;&lt;div style=&quot;color: #666666; font-family: inherit;&quot;&gt;</code><span style="color: black;">&nbsp; 所以最簡單的應用就是…</span><code></code><span style="color: black;">&nbsp;&nbsp;</span><code></code><span style="color: black;">&nbsp; 先用一個網域(ex:abc.com)用A指定好IP(ex:100.100.100.100)<br>&nbsp; 然後其他網域用Cname指定到abc.com</span><code>&lt;/div&gt;&lt;div style=&quot;color: #666666; font-family: inherit;&quot;&gt;</code><span style="color: black;">&nbsp; 像下圖</span><code>&lt;/div&gt;&lt;div style=&quot;color: #666666; font-family: inherit;&quot;&gt;</code><span style="color: black;">&nbsp;abc2.com&nbsp; -&gt; abc.com -&gt;100.100.100.100</span><code>&lt;/div&gt;&lt;div style=&quot;color: #666666; font-family: inherit;&quot;&gt;</code><span style="color: black;">&nbsp;abc3.com&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ↑</span><code>&lt;/div&gt;&lt;div style=&quot;color: #666666; font-family: inherit;&quot;&gt;</code><span style="color: black;"><br></span><code>&lt;/div&gt;&lt;div style=&quot;color: #666666; font-family: inherit;&quot;&gt;</code><span style="color: black;">這樣abc,abc2,abc3 都會指向100.100.100.100</span><code>&lt;/div&gt;&lt;div style=&quot;color: #666666; font-family: inherit;&quot;&gt;</code><span style="color: black;">改的時候只要改abc.com的A就會一起改掉了。</span><code>&lt;/div&gt;&lt;div style=&quot;color: #666666; font-family: inherit;&quot;&gt;</code><span style="color: black;"><br></span><code>&lt;/div&gt;&lt;div style=&quot;color: #666666; font-family: inherit;&quot;&gt;</code><span style="color: black;">另外聽說twbbs.org被大陸封鎖了，要幫二姊另外找一個適合的域名。</span>`</div>
+          <h1 class="post-title" itemprop="name headline">柔道初體驗</h1>
         
-      </div>
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">發表於</span>
+              
+              <time title="創建於" itemprop="dateCreated datePublished" datetime="2009-03-19T15:30:00+08:00">
+                2009-03-19
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分類於</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/日記/" itemprop="url" rel="index">
+                    <span itemprop="name">日記</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
       
       
+
+      
+        <p>恩，終於找到練習柔道的人們拉。</p>
+<p>是個令人感到快樂的事情，呵呵呵呵。</p>
+<a id="more"></a>
+<p>條列式心得比較不花腦</p>
+<ul>
+<li>柔道服看了就覺得好好摔阿，全部都麻布一定很好抓(流口水)<br>抓那的手感一定很不錯…。</li>
+<li><p>「跆拳道社長我認識阿，就那個<strong>買了衣服然後從來沒來過的學妹</strong>阿」<br><span style="text-decoration: line-through;">(默想：她現在正在圖書館打工呢)</span></p>
+</li>
+<li><p>護身倒法還是需要被摔來配合比較實際，<br>不過這授身的東西精確多了</p>
+</li>
+<li>不想要墊腳尖拉，靠北這樣站很不穩幹嘛這樣</li>
+<li>我需要一個程度相當的對手(怒)</li>
+<li>柔道是個重禮儀的東西</li>
+<li>好想要跟那些學長摔摔看阿…</li>
+<li>有些學長很威，至少基本體能都還不錯。<br>看到康耀學長在做訓練脖子的動作整個就很令人振奮。</li>
+<li>授身時期快結束吧，雖然不是想踢館可是我目的是跟人磨練阿</li>
+<li>好像說會有大專盃，好想參加唉。</li>
+<li>然後這群人明明不是社團可是比跆拳社來的像社團點XDDDDD<br>好想試試看，跟他們全力對抗的感覺阿，<br>感覺上學長們的互相練習都太過溫柔了其實，可以殘暴點(?!)</li>
+</ul>
+<p>有個黑帶的學長上來跟摔，恩，看那小手臂跟指力，嘖嘖阿嘖嘖</p>
+<p>好想玩玩阿…</p>
+<p>授身快結束吧授身快結束吧授身快結束吧授身快結束吧授身快結束吧授身快結束吧授身快結束吧授身快結束吧授身快結束吧授身快結束吧授身快結束吧授身快結束吧授身快結束吧授身快結束吧授身快結束吧授身快結束吧授身快結束吧授身快結束吧</p>
+
       
     </div>
     
     
     
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2009/小丑的風格？/" rel="next" title="小丑的風格？">
+                <i class="fa fa-chevron-left"></i> 小丑的風格？
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2009/自以為有進步/" rel="prev" title="自以為有進步">
+                自以為有進步 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
   </div>
 
 
