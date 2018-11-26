@@ -84,19 +84,19 @@
 
 
 
-<meta name="description" content="這兩天在使用MLApp這個Class撰寫Matlab的Web Service時遇到這個鬼打牆的問題 解決的算是莫名其妙，也徹底感受到中文程式資訊的不足…網路上遇到System.UnauthorizedAccessException: 擷取元件 (CLSID 為 { blahblahblahblahblahblahCLSID}) 的 COM Class Factory 失敗，因為發生下列錯誤: 80">
+<meta name="description" content="這兩天在使用MLApp這個Class撰寫Matlab的Web Service時遇到這個鬼打牆的問題 解決的算是莫名其妙，也徹底感受到中文程式資訊的不足… 網路上遇到 System.UnauthorizedAccessException: 擷取元件 (CLSID 為 { blahblahblahblahblahblahCLSID}) 的 COM Class Factory 失敗，因為發生下列錯誤:">
 <meta name="keywords" content="資訊筆記">
 <meta property="og:type" content="website">
 <meta property="og:title" content="[C#] Matlab COM元件在IIS Base WebService底下的 80070005 存取被拒 錯誤">
 <meta property="og:url" content="https://pine0113.github.io/google archive/C-Matlab-COM元件在IIS-Base-WebService底下的-80070005-存取被拒-錯誤.html">
 <meta property="og:site_name" content="蛇尾巴">
-<meta property="og:description" content="這兩天在使用MLApp這個Class撰寫Matlab的Web Service時遇到這個鬼打牆的問題 解決的算是莫名其妙，也徹底感受到中文程式資訊的不足…網路上遇到System.UnauthorizedAccessException: 擷取元件 (CLSID 為 { blahblahblahblahblahblahCLSID}) 的 COM Class Factory 失敗，因為發生下列錯誤: 80">
+<meta property="og:description" content="這兩天在使用MLApp這個Class撰寫Matlab的Web Service時遇到這個鬼打牆的問題 解決的算是莫名其妙，也徹底感受到中文程式資訊的不足… 網路上遇到 System.UnauthorizedAccessException: 擷取元件 (CLSID 為 { blahblahblahblahblahblahCLSID}) 的 COM Class Factory 失敗，因為發生下列錯誤:">
 <meta property="og:locale" content="zh-tw">
 <meta property="og:image" content="http://4.bp.blogspot.com/--yL5RZAG94A/Uh1pUa41VUI/AAAAAAAAI7E/IOIDCVKVeAU/s1600/programmer-problems-240x180.jpg">
-<meta property="og:updated_time" content="2018-11-23T03:15:44.361Z">
+<meta property="og:updated_time" content="2018-11-24T05:36:48.311Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="[C#] Matlab COM元件在IIS Base WebService底下的 80070005 存取被拒 錯誤">
-<meta name="twitter:description" content="這兩天在使用MLApp這個Class撰寫Matlab的Web Service時遇到這個鬼打牆的問題 解決的算是莫名其妙，也徹底感受到中文程式資訊的不足…網路上遇到System.UnauthorizedAccessException: 擷取元件 (CLSID 為 { blahblahblahblahblahblahCLSID}) 的 COM Class Factory 失敗，因為發生下列錯誤: 80">
+<meta name="twitter:description" content="這兩天在使用MLApp這個Class撰寫Matlab的Web Service時遇到這個鬼打牆的問題 解決的算是莫名其妙，也徹底感受到中文程式資訊的不足… 網路上遇到 System.UnauthorizedAccessException: 擷取元件 (CLSID 為 { blahblahblahblahblahblahCLSID}) 的 COM Class Factory 失敗，因為發生下列錯誤:">
 <meta name="twitter:image" content="http://4.bp.blogspot.com/--yL5RZAG94A/Uh1pUa41VUI/AAAAAAAAI7E/IOIDCVKVeAU/s1600/programmer-problems-240x180.jpg">
 
 
@@ -207,16 +207,6 @@
         </li>
       
         
-        <li class="menu-item menu-item-about">
-          <a href="/about/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
-            
-            關於
-          </a>
-        </li>
-      
-        
         <li class="menu-item menu-item-tags">
           <a href="/tags/" rel="section">
             
@@ -285,10 +275,19 @@
         
         
           <p>這兩天在使用MLApp這個Class撰寫Matlab的Web Service時遇到這個鬼打牆的問題</p>
-<div>解決的算是莫名其妙，也徹底感受到中文程式資訊的不足…</div><div><br></div><div>網路上遇到<br><br><strong>System.UnauthorizedAccessException: 擷取元件 (CLSID 為 { blahblahblahblahblahblahCLSID}) 的 COM Class Factory 失敗，因為發生下列錯誤: 80070005 存取被拒。</strong><br><strong>
-</strong>google出來的結果大部分都是<br><br>開始-&gt;執行-&gt;mmc.exe 或是&nbsp;dcomcnfg.exe<br>從元件服務-&gt; blahblah -&gt; DCOM設定<br><br>再去找出你用的服務，然後右鍵 內容 -&gt; 安全性<br>把 Network Service 跟 IIS_IUSRS 這兩個使用者加入權限<br><br>可設完之後還是跳同一個error<br><br>—<br><br>最後處理的方法是<br><br>改IIS的設定 把那個Webservice的應用程式集區 的識別 改成 Local System就可以了<br><br>—<br><br>感想只能附上這張圖了…<br><div class="separator" style="clear: both; text-align: center;"><a href="http://4.bp.blogspot.com/--yL5RZAG94A/Uh1pUa41VUI/AAAAAAAAI7E/IOIDCVKVeAU/s1600/programmer-problems-240x180.jpg" target="_blank" rel="noopener"><img src="http://4.bp.blogspot.com/--yL5RZAG94A/Uh1pUa41VUI/AAAAAAAAI7E/IOIDCVKVeAU/s1600/programmer-problems-240x180.jpg" alt=""></a></div>
-
-<div></div></div>
+<p><div>解決的算是莫名其妙，也徹底感受到中文程式資訊的不足…<div></div></div></p>
+<p><div>網路上遇到</div></p>
+<p><strong>System.UnauthorizedAccessException: 擷取元件 (CLSID 為 { blahblahblahblahblahblahCLSID}) 的 COM Class Factory 失敗，因為發生下列錯誤: 80070005 存取被拒。</strong><br><strong>
+</strong>google出來的結果大部分都是</p>
+<p>開始-&gt;執行-&gt;mmc.exe 或是&nbsp;dcomcnfg.exe<br>從元件服務-&gt; blahblah -&gt; DCOM設定</p>
+<p>再去找出你用的服務，然後右鍵 內容 -&gt; 安全性<br>把 Network Service 跟 IIS_IUSRS 這兩個使用者加入權限</p>
+<p>可設完之後還是跳同一個error</p>
+<hr>
+<p>最後處理的方法是</p>
+<p>改IIS的設定 把那個Webservice的應用程式集區 的識別 改成 Local System就可以了</p>
+<hr>
+<p>感想只能附上這張圖了…<br><a href="http://4.bp.blogspot.com/--yL5RZAG94A/Uh1pUa41VUI/AAAAAAAAI7E/IOIDCVKVeAU/s1600/programmer-problems-240x180.jpg" target="_blank" rel="noopener"><img src="http://4.bp.blogspot.com/--yL5RZAG94A/Uh1pUa41VUI/AAAAAAAAI7E/IOIDCVKVeAU/s1600/programmer-problems-240x180.jpg" alt=""></a></p>
+<div></div>
         
       </div>
       
@@ -346,7 +345,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">42</span>
+                  <span class="site-state-item-count">71</span>
                   <span class="site-state-item-name">文章</span>
                 </a>
               </div>
@@ -368,7 +367,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">18</span>
+                  <span class="site-state-item-count">21</span>
                   <span class="site-state-item-name">標籤</span>
                 </a>
               </div>

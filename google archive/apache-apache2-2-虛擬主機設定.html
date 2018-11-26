@@ -84,18 +84,18 @@
 
 
 
-<meta name="description" content="為了要設定長洪新店館網址跟二姊的blog網址(好讓其看起來不像是mote.twbbs.org的產物)，在研究虛擬主機跟DNS的漫長奮鬥之後終於有了結果…。也怕自己忘記所以趕緊記下相關的設定。(網路上的解決方法總是有些那麼不全Orz)目標：讓twbbs等網域名可以正確指向所需資料夾方法：將網域指向主機，主機以虛擬主機方式提供不同資料，假裝自己是很多種主機。虛擬主機定義：讓不同網域連至本主機後提供不同">
+<meta name="description" content="為了要設定長洪新店館網址跟二姊的blog網址(好讓其看起來不像是mote.twbbs.org的產物)，在研究虛擬主機跟DNS的漫長奮鬥之後終於有了結果…。也怕自己忘記所以趕緊記下相關的設定。(網路上的解決方法總是有些那麼不全Orz)">
 <meta name="keywords" content="資訊筆記">
 <meta property="og:type" content="website">
 <meta property="og:title" content="[apache] apache2.2 虛擬主機設定">
 <meta property="og:url" content="https://pine0113.github.io/google archive/apache-apache2-2-虛擬主機設定.html">
 <meta property="og:site_name" content="蛇尾巴">
-<meta property="og:description" content="為了要設定長洪新店館網址跟二姊的blog網址(好讓其看起來不像是mote.twbbs.org的產物)，在研究虛擬主機跟DNS的漫長奮鬥之後終於有了結果…。也怕自己忘記所以趕緊記下相關的設定。(網路上的解決方法總是有些那麼不全Orz)目標：讓twbbs等網域名可以正確指向所需資料夾方法：將網域指向主機，主機以虛擬主機方式提供不同資料，假裝自己是很多種主機。虛擬主機定義：讓不同網域連至本主機後提供不同">
+<meta property="og:description" content="為了要設定長洪新店館網址跟二姊的blog網址(好讓其看起來不像是mote.twbbs.org的產物)，在研究虛擬主機跟DNS的漫長奮鬥之後終於有了結果…。也怕自己忘記所以趕緊記下相關的設定。(網路上的解決方法總是有些那麼不全Orz)">
 <meta property="og:locale" content="zh-tw">
-<meta property="og:updated_time" content="2018-11-23T03:15:44.361Z">
+<meta property="og:updated_time" content="2018-11-24T05:36:48.311Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="[apache] apache2.2 虛擬主機設定">
-<meta name="twitter:description" content="為了要設定長洪新店館網址跟二姊的blog網址(好讓其看起來不像是mote.twbbs.org的產物)，在研究虛擬主機跟DNS的漫長奮鬥之後終於有了結果…。也怕自己忘記所以趕緊記下相關的設定。(網路上的解決方法總是有些那麼不全Orz)目標：讓twbbs等網域名可以正確指向所需資料夾方法：將網域指向主機，主機以虛擬主機方式提供不同資料，假裝自己是很多種主機。虛擬主機定義：讓不同網域連至本主機後提供不同">
+<meta name="twitter:description" content="為了要設定長洪新店館網址跟二姊的blog網址(好讓其看起來不像是mote.twbbs.org的產物)，在研究虛擬主機跟DNS的漫長奮鬥之後終於有了結果…。也怕自己忘記所以趕緊記下相關的設定。(網路上的解決方法總是有些那麼不全Orz)">
 
 
 
@@ -205,16 +205,6 @@
         </li>
       
         
-        <li class="menu-item menu-item-about">
-          <a href="/about/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
-            
-            關於
-          </a>
-        </li>
-      
-        
         <li class="menu-item menu-item-tags">
           <a href="/tags/" rel="section">
             
@@ -282,14 +272,23 @@
       <div class="post-body">
         
         
-          <div style="font-family: inherit;">為了要設定<a href="http://shintien.twbbs.org/" target="_blank" rel="noopener">長洪新店館</a>網址跟<a href="http://shireteahouse.twbbs.org/" target="_blank" rel="noopener">二姊的blog</a>網址<br>(好讓其看起來不像是mote.twbbs.org的產物)，<br>在研究虛擬主機跟DNS的漫長奮鬥之後終於有了結果…。</div><div style="font-family: inherit;">也怕自己忘記所以趕緊記下相關的設定。<br>(網路上的解決方法總是有些那麼不全Orz)</div><div style="font-family: inherit;"><br><a name="more"></a><br></div><div style="font-family: inherit;">目標：讓twbbs等網域名可以正確指向所需資料夾</div><div style="font-family: inherit;">方法：將網域指向主機，主機以虛擬主機方式提供不同資料，假裝自己是很多種主機。</div><div style="font-family: inherit;"><br></div><div style="font-family: inherit;">虛擬主機定義：讓不同網域連至本主機後提供不同的資料夾當作瀏覽檔案的相關設定</div><div style="font-family: inherit;"><br></div><div style="font-family: inherit;">1.主機上設定：修改apache2.2相關設定</div><div style="font-family: inherit;">1-1.修改httpd.conf&nbsp; (freebsd下預設位址為/usr/local/etc/apache22)</div><div style="font-family: inherit;">&nbsp;&nbsp; Virtualhost的設定預設是被註解掉的，將其註解拔掉</div><div style="font-family: inherit;"><br>&nbsp; # Virtual hosts<br><span style="color: red;">&nbsp; Include etc/apache22/extra/httpd-vhosts.conf</span></div><div style="font-family: inherit;"><br>1-2.修改extra/httpd-vhosts.conf</div><div style="font-family: inherit;">&nbsp; 檔案中有2個預設範例</div><div style="font-family: inherit;">&nbsp; 基本結構如下</div><div style="color: #666666; font-family: inherit;"></div><div style="color: #666666; font-family: inherit;"><code>&amp;lt;VirtualHost 接受位址:接受埠&amp;nbsp;&amp;gt;
+          <p><div style="font-family: inherit;">為了要設定<a href="http://shintien.twbbs.org/" target="_blank" rel="noopener">長洪新店館</a>網址跟<a href="http://shireteahouse.twbbs.org/" target="_blank" rel="noopener">二姊的blog</a>網址<br>(好讓其看起來不像是mote.twbbs.org的產物)，<br>在研究虛擬主機跟DNS的漫長奮鬥之後終於有了結果…。<div style="font-family: inherit;">也怕自己忘記所以趕緊記下相關的設定。<br>(網路上的解決方法總是有些那麼不全Orz)<div style="font-family: inherit;"><br><a id="more"></a></div></div></div></p>
+<p><div style="font-family: inherit;">目標：讓twbbs等網域名可以正確指向所需資料夾<div style="font-family: inherit;">方法：將網域指向主機，主機以虛擬主機方式提供不同資料，假裝自己是很多種主機。<div style="font-family: inherit;"></div></div></div></p>
+<p><div style="font-family: inherit;">虛擬主機定義：讓不同網域連至本主機後提供不同的資料夾當作瀏覽檔案的相關設定<div style="font-family: inherit;"></div></div></p>
+<p><div style="font-family: inherit;">1.主機上設定：修改apache2.2相關設定<div style="font-family: inherit;">1-1.修改httpd.conf&nbsp; (freebsd下預設位址為/usr/local/etc/apache22)<div style="font-family: inherit;">&nbsp;&nbsp; Virtualhost的設定預設是被註解掉的，將其註解拔掉<div style="font-family: inherit;"><br>&nbsp; # Virtual hosts<br><span style="color: red;">&nbsp; Include etc/apache22/extra/httpd-vhosts.conf</span><div style="font-family: inherit;"><br>1-2.修改extra/httpd-vhosts.conf<div style="font-family: inherit;">&nbsp; 檔案中有2個預設範例<div style="font-family: inherit;">&nbsp; 基本結構如下<div style="color: #666666; font-family: inherit;"><div style="color: #666666; font-family: inherit;"><code>&amp;lt;VirtualHost 接受位址:接受埠&amp;nbsp;&amp;gt;
 &amp;nbsp;       &lt;span class=&quot;indent&quot;&gt;ServerAdmin 管理者mail
 &amp;nbsp; DocumentRoot 檔案位址
 &amp;nbsp; ServerName 連結過來之網域名稱
 &amp;nbsp; ErrorLog 錯誤Log儲存處
 &amp;nbsp; TransferLog logs/host.example.com-access_log
-&lt;/span&gt;       &amp;lt;/VirtualHost&amp;gt;&amp;nbsp;</code></div><div style="font-family: inherit;"><br></div><div style="font-family: inherit;"><code>1-3.重開apache</code></div><div style="color: #666666; font-family: inherit;"><code>&amp;nbsp; `</code>apachectl -k restart<code>&lt;/div&gt;&lt;div style=&quot;color: #666666; font-family: inherit;&quot;&gt;
-&lt;/div&gt;&lt;div style=&quot;color: #666666; font-family: inherit;&quot;&gt;</code><span style="color: black;">2.網域DNS設定</span><code>&lt;/div&gt;&lt;div style=&quot;color: #666666; font-family: inherit;&quot;&gt;</code><span style="color: black;">&nbsp; 網域DNS設定指向主機即可。 </span><code>&lt;/div&gt;&lt;div style=&quot;color: #666666; font-family: inherit;&quot;&gt;</code><span style="color: black;">&nbsp; 類別差異：</span><code>&lt;/div&gt;&lt;div style=&quot;color: #666666; font-family: inherit;&quot;&gt;</code><span style="color: black;">&nbsp; A:&nbsp;&nbsp;&nbsp; 直接指定IP</span><code>&lt;/div&gt;&lt;div style=&quot;color: #666666; font-family: inherit;&quot;&gt;</code><span style="color: black;">&nbsp; CNAME:指定另一網域名</span><code>&lt;/div&gt;&lt;div style=&quot;color: #666666; font-family: inherit;&quot;&gt;</code><span style="color: black;">&nbsp; NS:&nbsp;&nbsp; 指定另一Name Server</span><code>&lt;/div&gt;&lt;div style=&quot;color: #666666; font-family: inherit;&quot;&gt;</code><span style="color: black;">&nbsp; AAAA: 指定IPv6的主機</span><code>&lt;/div&gt;&lt;div style=&quot;color: #666666; font-family: inherit;&quot;&gt;</code><span style="color: black;"><br></span><code>&lt;/div&gt;&lt;div style=&quot;color: #666666; font-family: inherit;&quot;&gt;</code><span style="color: black;">&nbsp; 其中A跟Cname的差別就像是Address跟pointer的差別：</span><code>&lt;/div&gt;&lt;div style=&quot;color: #666666; font-family: inherit;&quot;&gt;</code><span style="color: black;">&nbsp; A是直接指定IP，Cname是指定一個指向IP的網域</span><code>&lt;/div&gt;&lt;div style=&quot;color: #666666; font-family: inherit;&quot;&gt;</code><span style="color: black;">&nbsp; 所以最簡單的應用就是…</span><code></code><span style="color: black;">&nbsp;&nbsp;</span><code></code><span style="color: black;">&nbsp; 先用一個網域(ex:abc.com)用A指定好IP(ex:100.100.100.100)<br>&nbsp; 然後其他網域用Cname指定到abc.com</span><code>&lt;/div&gt;&lt;div style=&quot;color: #666666; font-family: inherit;&quot;&gt;</code><span style="color: black;">&nbsp; 像下圖</span><code>&lt;/div&gt;&lt;div style=&quot;color: #666666; font-family: inherit;&quot;&gt;</code><span style="color: black;">&nbsp;abc2.com&nbsp; -&gt; abc.com -&gt;100.100.100.100</span><code>&lt;/div&gt;&lt;div style=&quot;color: #666666; font-family: inherit;&quot;&gt;</code><span style="color: black;">&nbsp;abc3.com&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ↑</span><code>&lt;/div&gt;&lt;div style=&quot;color: #666666; font-family: inherit;&quot;&gt;</code><span style="color: black;"><br></span><code>&lt;/div&gt;&lt;div style=&quot;color: #666666; font-family: inherit;&quot;&gt;</code><span style="color: black;">這樣abc,abc2,abc3 都會指向100.100.100.100</span><code>&lt;/div&gt;&lt;div style=&quot;color: #666666; font-family: inherit;&quot;&gt;</code><span style="color: black;">改的時候只要改abc.com的A就會一起改掉了。</span><code>&lt;/div&gt;&lt;div style=&quot;color: #666666; font-family: inherit;&quot;&gt;</code><span style="color: black;"><br></span><code>&lt;/div&gt;&lt;div style=&quot;color: #666666; font-family: inherit;&quot;&gt;</code><span style="color: black;">另外聽說twbbs.org被大陸封鎖了，要幫二姊另外找一個適合的域名。</span>`</div>
+&lt;/span&gt;       &amp;lt;/VirtualHost&amp;gt;&amp;nbsp;</code><div style="font-family: inherit;"></div></div></div></div></div></div></div></div></div></div></p>
+<p><div style="font-family: inherit;"><code>1-3.重開apache</code><div style="color: #666666; font-family: inherit;"><code>&amp;nbsp; `</code>apachectl -k restart`<div style="color: #666666; font-family: inherit;"></div></div></div></p>
+<p><div style="color: #666666; font-family: inherit;"><code>&lt;span style=&quot;color: black;&quot;&gt;2.網域DNS設定&lt;/span&gt;</code><div style="color: #666666; font-family: inherit;"><code>&lt;span style=&quot;color: black;&quot;&gt;&amp;nbsp; 網域DNS設定指向主機即可。 &lt;/span&gt;</code><div style="color: #666666; font-family: inherit;"><code>&lt;span style=&quot;color: black;&quot;&gt;&amp;nbsp; 類別差異：&lt;/span&gt;</code><div style="color: #666666; font-family: inherit;"><code>&lt;span style=&quot;color: black;&quot;&gt;&amp;nbsp; A:&amp;nbsp;&amp;nbsp;&amp;nbsp; 直接指定IP&lt;/span&gt;</code><div style="color: #666666; font-family: inherit;"><code>&lt;span style=&quot;color: black;&quot;&gt;&amp;nbsp; CNAME:指定另一網域名&lt;/span&gt;</code><div style="color: #666666; font-family: inherit;"><code>&lt;span style=&quot;color: black;&quot;&gt;&amp;nbsp; NS:&amp;nbsp;&amp;nbsp; 指定另一Name Server&lt;/span&gt;</code><div style="color: #666666; font-family: inherit;"><code>&lt;span style=&quot;color: black;&quot;&gt;&amp;nbsp; AAAA: 指定IPv6的主機&lt;/span&gt;</code><div style="color: #666666; font-family: inherit;"><code>&lt;span style=&quot;color: black;&quot;&gt;
+&lt;/span&gt;</code><div style="color: #666666; font-family: inherit;"><code>&lt;span style=&quot;color: black;&quot;&gt;&amp;nbsp; 其中A跟Cname的差別就像是Address跟pointer的差別：&lt;/span&gt;</code><div style="color: #666666; font-family: inherit;"><code>&lt;span style=&quot;color: black;&quot;&gt;&amp;nbsp; A是直接指定IP，Cname是指定一個指向IP的網域&lt;/span&gt;</code><div style="color: #666666; font-family: inherit;"><code>&lt;span style=&quot;color: black;&quot;&gt;&amp;nbsp; 所以最簡單的應用就是...&lt;/span&gt;</code><br><code>&lt;span style=&quot;color: black;&quot;&gt;&amp;nbsp;&amp;nbsp;&lt;/span&gt;</code><br><code>&lt;span style=&quot;color: black;&quot;&gt;&amp;nbsp; 先用一個網域(ex:abc.com)用A指定好IP(ex:100.100.100.100)
+&amp;nbsp; 然後其他網域用Cname指定到abc.com&lt;/span&gt;</code><div style="color: #666666; font-family: inherit;"><code>&lt;span style=&quot;color: black;&quot;&gt;&amp;nbsp; 像下圖&lt;/span&gt;</code><div style="color: #666666; font-family: inherit;"><code>&lt;span style=&quot;color: black;&quot;&gt;&amp;nbsp;abc2.com&amp;nbsp; -&amp;gt; abc.com -&amp;gt;100.100.100.100&lt;/span&gt;</code><div style="color: #666666; font-family: inherit;"><code>&lt;span style=&quot;color: black;&quot;&gt;&amp;nbsp;abc3.com&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; ↑&lt;/span&gt;</code><div style="color: #666666; font-family: inherit;"><code>&lt;span style=&quot;color: black;&quot;&gt;
+&lt;/span&gt;</code><div style="color: #666666; font-family: inherit;"><code>&lt;span style=&quot;color: black;&quot;&gt;這樣abc,abc2,abc3 都會指向100.100.100.100&lt;/span&gt;</code><div style="color: #666666; font-family: inherit;"><code>&lt;span style=&quot;color: black;&quot;&gt;改的時候只要改abc.com的A就會一起改掉了。&lt;/span&gt;</code><div style="color: #666666; font-family: inherit;"><code>&lt;span style=&quot;color: black;&quot;&gt;
+&lt;/span&gt;</code><div style="color: #666666; font-family: inherit;"><code>&lt;span style=&quot;color: black;&quot;&gt;另外聽說twbbs.org被大陸封鎖了，要幫二姊另外找一個適合的域名。&lt;/span&gt;</code></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></p>
+
         
       </div>
       
@@ -347,7 +346,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">42</span>
+                  <span class="site-state-item-count">71</span>
                   <span class="site-state-item-name">文章</span>
                 </a>
               </div>
@@ -369,7 +368,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">18</span>
+                  <span class="site-state-item-count">21</span>
                   <span class="site-state-item-name">標籤</span>
                 </a>
               </div>
